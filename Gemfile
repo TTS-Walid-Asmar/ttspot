@@ -46,4 +46,5 @@ group :test, :development do
   gem 'awesome_print'
   gem 'pry'
   gem 'hirb'
+  gem 'timecop'
 end
