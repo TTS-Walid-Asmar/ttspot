@@ -1,2 +1,10 @@
-<h1>Offerings#index</h1>
-<p>Find me in app/views/offerings/index.html.erb</p>
+<h1>All Courses We Offer</h1>
+
+<% @offerings.each do |offering| %>
+  <%= offering.title %>
+<% end %>
+
+<%= form_for @offering do |f| %>
+  <%= f.text_field :title, class: "form-control" %>
+  <%= f.submit %>
+<% end %>

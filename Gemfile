@@ -15,9 +15,12 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'devise_invitable'
 gem 'redcarpet'
+gem 'coderay'
 gem 'font-awesome-rails'
 gem 'figaro'
 gem 'rubocop', require: false
+gem 'valid_url'
+gem 'cancancan', '~> 1.10'
 
 group :test do
   gem 'factory_girl_rails'
@@ -29,6 +32,7 @@ group :test do
 end
 
 group :development do
+  gem "rails-erd"
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'better_errors'
@@ -41,7 +45,7 @@ group :development do
 end
 
 group :test, :development do
-  gem 'byebug'
+  gem 'byebug', '~> 8.2.5'
   gem 'rspec-rails'
   gem 'awesome_print'
   gem 'pry'

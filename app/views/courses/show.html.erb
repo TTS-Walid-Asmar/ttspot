@@ -1,2 +1,58 @@
-<h1>Courses#show</h1>
-<p>Find me in app/views/courses/show.html.erb</p>
+<%= notice %>
+<h1 class="text-center"><%= @course.title %></h1>
+
+<div class= "row">
+  <div class="col col-md-3">
+    <div class="well">
+      <h4>Course Info</h4>
+      <p>Instructor: <%= @course.instructor.name %></p>
+
+      <p><%= @course.instructor.name %>'s email: <%= @course.instructor.email %></p>
+
+      <div id="course-info" class="collapse">
+
+        <p>Address: <%= sanitize(@course.address)%></p>
+
+
+        <p>First Day: <%= @course.starts.strftime('%D') %> :)</p>
+
+        <p>Last Day: <%= @course.ends.strftime('%D') %> :'(</p>
+
+        <p>Start Time: <%= @course.start_time.strftime('%l:%M %p') %></p>
+
+        <p>End Time: <%= @course.end_time.strftime('%l:%M %p') %></p>
+      </div>
+
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#course-info">
+        More Info
+      </button>
+
+    </div>
+  </div>
+  <div class="col col-md-9">
+  <div class="well">
+    <h1 class="text-center">Lessons</h1>
+    <br />
+      <table class="table table-striped">
+        <tr>
+          <thead>
+          <th>#</th>
+          <th>Title</th>
+          <th>Synopsis</th>
+          </thead>
+        </tr>
+        <% @course.lessons.each do |lesson|%>
+        <tr>
+          <th><%= lesson.number %></th>
+          <th><%= link_to lesson.title, lesson %></th>
+          <th><%= lesson.description %></th>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+<% if can? :manage, @course %>
+  <%= link_to 'New Lesson', new_course_lesson_path(@course), class: "btn btn-info" %> |
+  <%= link_to 'Delete Course', course_path(@course), method: :delete,data: {confirm: "Are you sure?"}, class:"btn btn-danger" %>
+<% end %>

@@ -1,2 +1,5 @@
 <h1>Offerings#show</h1>
 <p>Find me in app/views/offerings/show.html.erb</p>
+<%= @offering.active_courses.each do |course| %>
+  <%= course.title %>
+<% end %>

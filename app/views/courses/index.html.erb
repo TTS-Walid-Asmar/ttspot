@@ -1,2 +1,38 @@
-<h1>Courses#index</h1>
-<p>Find me in app/views/courses/index.html.erb</p>
+<div class="row">
+  <div class="col-md-6">
+    <h2>Active <%= "Course".pluralize(@courses.count) %></h2>
+    <% @courses.each do |course| %>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <%= link_to course.title, course %>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            <%= course.description %>
+          </p>
+          <br />
+          Ends on: <%= course.ends.strftime('%D') %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-4">
+    <h2>Inactive <%= "Course".pluralize(@inactive_courses.count) %></h2>
+    <% @inactive_courses.each do |inactive| %>
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= link_to inactive.title, inactive %>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <%= inactive.description %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

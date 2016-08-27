@@ -1,0 +1,45 @@
+<%= form_for [@course, @lesson] do |f| %>
+  <% if @lesson.errors.any? %>
+  <ul>
+    <% @lesson.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+
+<form class="form-horizontal">
+  <div class="form-group">
+    <%= f.label :number %>
+    <%= f.number_field :number, class: "form-control", value: (@lesson.new_record? ? @course.lessons.count + 1 : @lesson.number) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :title %>:
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :entry, "Lesson Markdown"%>
+    <p>
+      For live preview of your markdown, <%= link_to "check out this neat tool.", "https://jbt.github.io/markdown-editor/", target: "_blank" %> If you need a refresher on markdown, <%= link_to "here's a cheat sheet.", "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet", target: "_blank" %>
+    </p>
+    <%= f.text_area :entry, class: "form-control", rows: 12 %>
+  </div>
+
+    <div class="form-group">
+    <%= f.hidden_field :instructor_id, value: current_user.id %>
+    <%= f.hidden_field :course_id, value: (@lesson.new_record? ? @course.id : @lesson.course_id) %>
+  </div>
+
+    <div class="form-group">
+    <%= f.label :active %>: <%= f.check_box :public, class: "checkbox" %>
+  </div>
+
+  <%= f.submit %>
+</form>
+<% end %>
