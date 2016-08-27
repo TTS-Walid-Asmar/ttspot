@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20160826035702) do
     t.text     "entry"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.boolean  "public",        default: false
+    t.boolean  "published",     default: false
   end
 
   add_index "lessons", ["course_id"], name: "index_lessons_on_course_id", using: :btree

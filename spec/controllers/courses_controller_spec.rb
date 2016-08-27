@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe CoursesController, type: :controller do
 
   context "when a student is logged in" do
-    let(:course) {FactoryGirl.create(:course, :on_going)}
+    let(:course) {FactoryGirl.create(:course)}
     let(:student) {FactoryGirl.create(:student)}
 
     before do
@@ -62,7 +62,7 @@ RSpec.describe CoursesController, type: :controller do
   end
 
   context "when an instructor is logged in" do
-    let(:course) {FactoryGirl.create(:course, :on_going)}
+    let(:course) {FactoryGirl.create(:course)}
     let(:instructor) {FactoryGirl.create(:instructor)}
 
     before do

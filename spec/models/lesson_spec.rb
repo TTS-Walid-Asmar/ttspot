@@ -9,5 +9,5 @@ RSpec.describe Lesson, type: :model do
   it { should validate_presence_of :entry }
   it { should validate_presence_of :title }
   it { should validate_presence_of :number }
-  it { should validate_presence_of :public }
+  it { should validate_presence_of :published }
 end

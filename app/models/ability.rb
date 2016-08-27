@@ -5,9 +5,9 @@ class Ability
       user ||= User.new # guest user (not logged in)
       if user.type == "Instructor"
         can :manage, :all
-      else
+      elsif user.type == "Student"
+        can :read, [Course, Lesson, Homework]
         can :manage, Homework, student_id: user.id
-        can :read, [Course, Lesson]
       end
   end
 end

@@ -5,8 +5,11 @@ Rails.application.routes.draw do
 
   resources :cities
 
+
   resources :courses, shallow: true do
-    resources :lessons
+    resources :lessons do
+      resources :homeworks, only: [:create, :update, :destroy]
+    end
   end
 
   resources :offerings

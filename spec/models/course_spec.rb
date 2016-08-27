@@ -11,7 +11,7 @@ RSpec.describe Course, type: :model do
   it { should validate_presence_of :starts }
   it { should validate_presence_of :ends }
 
-  let(:course) {FactoryGirl.build_stubbed(:course, :on_going)}
+  let(:course) {FactoryGirl.build_stubbed(:course)}
 
   it "#address provides a full address" do
     expect(course.address).to eq("HQ Raleigh <br /> 310 South Harrington St. <br /> Raleigh 27601")

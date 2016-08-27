@@ -11,15 +11,6 @@ FactoryGirl.define do
   description "Learn to Code. Do Something Big."
   starts Date.today
   ends (Date.today + 30)
-
-  trait :on_going do
-    active true
-  end
-
-  trait :inactive do
-    active false
-  end
-
   season "Summer"
   start_time Time.now
   end_time (Time.now + 3*60*60)
@@ -29,6 +20,7 @@ FactoryGirl.define do
   city
   offering
   instructor
+  active true
  end
 
  factory :instructor do
@@ -57,7 +49,7 @@ FactoryGirl.define do
    entry "Markdown"
    course
    instructor
-   public true
+   published true
  end
 
  factory :homework do
