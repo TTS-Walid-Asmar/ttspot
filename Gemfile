@@ -21,6 +21,7 @@ gem 'figaro'
 gem 'rubocop', require: false
 gem 'valid_url'
 gem 'cancancan', '~> 1.10'
+gem 'rack-timeout'
 
 group :test do
   gem 'factory_girl_rails'
