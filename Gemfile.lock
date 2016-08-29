@@ -147,8 +147,6 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    quiet_assets (1.1.0)
-      railties (>= 3.1, < 5.0)
     rack (1.6.4)
     rack-mini-profiler (0.10.1)
       rack (>= 1.2.0)
@@ -304,7 +302,6 @@ DEPENDENCIES
   letter_opener
   pg (~> 0.15)
   pry
-  quiet_assets
   rack-mini-profiler
   rack-timeout
   rails (= 4.2.7.1)
