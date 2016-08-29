@@ -53,3 +53,7 @@ group :test, :development do
   gem 'hirb'
   gem 'timecop'
 end
+
+group :production do
+  gem 'rails_12factor'
+end
