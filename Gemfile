@@ -22,6 +22,7 @@ gem 'rubocop', require: false
 gem 'valid_url'
 gem 'cancancan', '~> 1.10'
 gem 'rack-timeout'
+gem 'puma'
 
 group :test do
   gem 'factory_girl_rails'
