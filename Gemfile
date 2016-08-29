@@ -38,7 +38,7 @@ group :development do
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
-  # gem 'quiet_assets'
+  gem 'quiet_assets'
   gem "letter_opener"
   gem 'bullet'
   gem 'rack-mini-profiler'
