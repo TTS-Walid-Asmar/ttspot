@@ -29,6 +29,13 @@ class CoursesController < ApplicationController
     end
   end
 
+  def invite
+    @course = Course.find(params[:id])
+    invited_user = Student.invite(invite_params, current_user)
+    #Remember to use cocoon here so you can send more than 1 invite at time.
+    # invited_user.courses << @course
+  end
+
   def update
     if @course.update(course_params)
       redirect_to @course
@@ -50,5 +57,8 @@ class CoursesController < ApplicationController
 
   def course_params
     params.require(:course).permit(:season, :description, :instructor_id, :starts, :ends, :active, :city_id, :offering_id, :street_address, :zip_code, :start_time, :end_time, :office_name)
+  end
+  def invite_params
+    params.requre(:user).permit(:email, :name)
   end
 end

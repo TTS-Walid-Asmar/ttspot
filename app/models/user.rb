@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :invitable
-         
+
   has_many :registrations
+  accepts_nested_attributes_for :registrations, reject_if: :all_blank, allow_destroy: true
   has_many :courses, through: :registrations
   validates :name, presence: true
 

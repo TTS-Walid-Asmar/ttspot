@@ -1,0 +1,7 @@
+<div class='nested-fields'>
+  <div class="field">
+    <%= f.label :course %>
+    <%= f.number_field :course_id, value: @course %>
+  </div>
+  <%= link_to_remove_association "Remove Course", f %>
+</div>
