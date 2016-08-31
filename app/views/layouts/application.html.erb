@@ -12,6 +12,7 @@
 <body>
   <%= render 'shared/nav' %>
 <div class= "container">
+  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
   <%= yield %>
 </div>
 </body>
