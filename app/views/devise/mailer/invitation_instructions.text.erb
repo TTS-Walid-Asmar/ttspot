@@ -2,7 +2,7 @@
 
 <%= t("devise.mailer.invitation_instructions.someone_invited_you", url: root_url) %>
 <% if @resource.class.to_s == "Student" %>
-<%= accept_student_course_invitation_url(@resource.courses.first.id, :invitation_token => @token) %>
+<%= accept_student_course_invitation_url(@resource.courses.first, :invitation_token => @token) %>
 <% else %>
   <%= accept_invitation_url(@resource, :invitation_token => @token) %>
 <% end %>
