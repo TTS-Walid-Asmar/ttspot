@@ -3,8 +3,7 @@ class InvitationsController < Devise::InvitationsController
   def after_invite_path_for(_)
     root_path
   end
-  private
   def set_course_new
-    @course = params[:course_id]
+    @course = params[:course_id].to_i
   end
 end
